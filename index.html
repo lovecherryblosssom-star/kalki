@@ -3,63 +3,233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #cce8f8, #e8f6ff, #b8d8ee);
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .calculator {
+            width: 320px;
+            padding: 22px;
+            background: linear-gradient(160deg, rgba(255,255,255,0.82) 0%, rgba(190,225,250,0.65) 100%);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-radius: 32px;
+            border: 1.5px solid rgba(255,255,255,0.75);
+            box-shadow:
+                10px 10px 30px rgba(80,145,210,0.22),
+                -4px -4px 12px rgba(255,255,255,0.72);
+        }
+
+        #screen {
+            width: 100%;
+            height: 76px;
+            background: linear-gradient(175deg, #182230 0%, #22303f 100%);
+            color: #cce8ff;
+            font-size: 1.9rem;
+            text-align: right;
+            padding: 14px 18px;
+            border: none;
+            border-radius: 18px;
+            margin-bottom: 18px;
+            letter-spacing: 1px;
+            box-shadow:
+                inset 3px 3px 10px rgba(0,0,0,0.55),
+                inset -1px -1px 4px rgba(100,165,225,0.08);
+            outline: none;
+            font-family: 'Courier New', monospace;
+            -webkit-text-fill-color: #cce8ff;
+            opacity: 1;
+        }
+
+        .row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        /* ── Base button: baby-blue dome ── */
+        button {
+            flex: 1;
+            height: 65px;
+            border: none;
+            border-radius: 16px;
+            font-size: 1.15rem;
+            font-weight: 600;
+            cursor: pointer;
+            user-select: none;
+            color: #1a4a6e;
+            background: linear-gradient(148deg, #dcf1ff 0%, #9dd4f2 46%, #68b9ea 100%);
+            box-shadow:
+                3px 3px 9px rgba(50,110,185,0.28),
+                -2px -2px 5px rgba(255,255,255,0.82),
+                inset 0 2px 5px rgba(255,255,255,0.68),
+                inset 0 -2px 4px rgba(30,90,160,0.12);
+            transition: transform 0.07s ease, box-shadow 0.07s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(148deg, #ecf8ff 0%, #b0dfff 46%, #7ac6f4 100%);
+            transform: translateY(-1px);
+        }
+
+        button:active {
+            transform: translateY(2px);
+            background: linear-gradient(148deg, #c5e8ff 0%, #88c8e8 46%, #55a8d8 100%);
+            box-shadow:
+                1px 1px 4px rgba(50,110,185,0.28),
+                inset 0 3px 7px rgba(30,90,160,0.24),
+                inset 0 -1px 2px rgba(255,255,255,0.38);
+        }
+
+        /* ── AC / Backspace: soft rose ── */
+        .btn-clear {
+            background: linear-gradient(148deg, #ffe8ed 0%, #ffaabc 46%, #f07888 100%);
+            color: #6a1525;
+            box-shadow:
+                3px 3px 9px rgba(185,60,80,0.22),
+                -2px -2px 5px rgba(255,255,255,0.82),
+                inset 0 2px 5px rgba(255,255,255,0.68),
+                inset 0 -2px 4px rgba(150,20,40,0.08);
+        }
+        .btn-clear:hover  { background: linear-gradient(148deg, #fff2f4 0%, #ffc0cc 46%, #f890a0 100%); }
+        .btn-clear:active { background: linear-gradient(148deg, #ffd0d8 0%, #f098aa 46%, #e06878 100%); }
+
+        /* ── Operators: lavender ── */
+        .btn-op {
+            background: linear-gradient(148deg, #ece0ff 0%, #c0a8f8 46%, #9878e8 100%);
+            color: #28106a;
+            box-shadow:
+                3px 3px 9px rgba(80,50,185,0.22),
+                -2px -2px 5px rgba(255,255,255,0.82),
+                inset 0 2px 5px rgba(255,255,255,0.62),
+                inset 0 -2px 4px rgba(60,20,160,0.1);
+        }
+        .btn-op:hover  { background: linear-gradient(148deg, #f4ecff 0%, #cfb8ff 46%, #a888f0 100%); }
+        .btn-op:active { background: linear-gradient(148deg, #d8c8ff 0%, #b098e8 46%, #8868d8 100%); }
+
+        /* ── Equals: mint ── */
+        .btn-eq {
+            background: linear-gradient(148deg, #d8f8ec 0%, #78ddb0 46%, #38c890 100%);
+            color: #0a3d28;
+            box-shadow:
+                3px 3px 9px rgba(30,145,90,0.22),
+                -2px -2px 5px rgba(255,255,255,0.82),
+                inset 0 2px 5px rgba(255,255,255,0.62),
+                inset 0 -2px 4px rgba(10,100,50,0.1);
+        }
+        .btn-eq:hover  { background: linear-gradient(148deg, #e5fff4 0%, #90e8c0 46%, #50d8a0 100%); }
+        .btn-eq:active { background: linear-gradient(148deg, #c0f0d8 0%, #60cca0 46%, #28b880 100%); }
+    </style>
 </head>
 <body>
-    <div class="calculator">
-        <input id="screen" type="text" disabled>
-        <!--row1-->
-        <div class="row">
-            <button onclick="Clear()">AC</button>
-            <button onclick="append('()')">()</button>
-            <button onclick="append('%')">%</button>
-            <button onclick="append('/')">÷</button>
-        </div>
-        <!--row2-->
-        <div class="row">
-            <button onclick="append('7')">7</button>
-            <button onclick="append('8')">8</button>
-            <button onclick="append('9')">9</button>
-            <button onclick="append('x')">x</button>
-        </div>
-        <!--row3-->
-        <div class="row">
-            <button onclick="append('4')">4</button>
-            <button onclick="append('5')">5</button>
-            <button onclick="append('6')">6</button>
-            <button onclick="append('-')">-</button>
-        </div>
-        <!--row4-->
-        <div class="row">
-            <button onclick="append('1')">1</button>
-            <button onclick="append('2')">2</button>
-            <button onclick="append('3')">3</button>
-            <button onclick="append('+')">+</button>
-        </div>
-        <!--row5-->
-        <div class="row">
-            <button onclick="append('0')">0</button>
-            <button onclick="append('.')">.</button>
-            <button onclick="ClearLast()">C</button>
-            <button onclick="Calculate()">=</button>
-        </div>
-    </div>  
+
+<div class="calculator">
+    <input id="screen" type="text" disabled>
+
+    <!--row1-->
+    <div class="row">
+        <button class="btn-clear" onclick="Clear()">AC</button>
+        <button onclick="appendParen()">()</button>
+        <button onclick="append('%')">%</button>
+        <button class="btn-op" onclick="append('/')">÷</button>
+    </div>
+
+    <!--row2-->
+    <div class="row">
+        <button onclick="append('7')">7</button>
+        <button onclick="append('8')">8</button>
+        <button onclick="append('9')">9</button>
+        <button class="btn-op" onclick="append('*')">×</button>
+    </div>
+
+    <!--row3-->
+    <div class="row">
+        <button onclick="append('4')">4</button>
+        <button onclick="append('5')">5</button>
+        <button onclick="append('6')">6</button>
+        <button class="btn-op" onclick="append('-')">−</button>
+    </div>
+
+    <!--row4-->
+    <div class="row">
+        <button onclick="append('1')">1</button>
+        <button onclick="append('2')">2</button>
+        <button onclick="append('3')">3</button>
+        <button class="btn-op" onclick="append('+')">+</button>
+    </div>
+
+    <!--row5-->
+    <div class="row">
+        <button onclick="append('0')">0</button>
+        <button onclick="append('.')">.</button>
+        <button class="btn-clear" onclick="ClearLast()">⌫</button>
+        <button class="btn-eq" onclick="Calculate()">=</button>
+    </div>
+</div>
+
+<script>
+    const screen = document.getElementById('screen');
+
+    function append(val) {
+        if (screen.value === 'Error') screen.value = '';
+        screen.value += val;
+    }
+
+    function appendParen() {
+        if (screen.value === 'Error') screen.value = '';
+        const val = screen.value;
+        const opens  = (val.match(/\(/g) || []).length;
+        const closes = (val.match(/\)/g) || []).length;
+        screen.value += (opens === closes) ? '(' : ')';
+    }
+
+    function Clear() {
+        screen.value = '';
+    }
+
+    function ClearLast() {
+        screen.value = screen.value.slice(0, -1);
+    }
+
+    function Calculate() {
+        try {
+            let expr = screen.value.replace(/%/g, '/100');
+            let result = Function('"use strict"; return (' + expr + ')')();
+            // Round floating point noise
+            screen.value = +result.toFixed(10) + '';
+        } catch {
+            screen.value = 'Error';
+        }
+    }
+
+    // Keyboard support
+    document.addEventListener('keydown', (e) => {
+        if (e.key >= '0' && e.key <= '9') append(e.key);
+        else if (e.key === '+') append('+');
+        else if (e.key === '-') append('-');
+        else if (e.key === '*') append('*');
+        else if (e.key === '/') { e.preventDefault(); append('/'); }
+        else if (e.key === '%') append('%');
+        else if (e.key === '.') append('.');
+        else if (e.key === '(' || e.key === ')') appendParen();
+        else if (e.key === 'Enter' || e.key === '=') Calculate();
+        else if (e.key === 'Backspace') ClearLast();
+        else if (e.key === 'Escape') Clear();
+    });
+</script>
+
 </body>
-<style>
-    .calculator{
-        width:400px;
-        height:700px;
-        background-color:lightcoral ;
-    }
-    .body{
-        display:flex;
-        align-items:center;
-        justify-content:center;
-    }
-    .input{
-        height:250px;
-        width:100%;
-        
-    }
-</style>
 </html>
