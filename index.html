@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="calculator">
+        <input id="screen" type="text" disabled>
+        <!--row1-->
+        <div class="row">
+            <button onclick="Clear()">AC</button>
+            <button onclick="append('()')">()</button>
+            <button onclick="append('%')">%</button>
+            <button onclick="append('/')">÷</button>
+        </div>
+        <!--row2-->
+        <div class="row">
+            <button onclick="append('7')">7</button>
+            <button onclick="append('8')">8</button>
+            <button onclick="append('9')">9</button>
+            <button onclick="append('x')">x</button>
+        </div>
+        <!--row3-->
+        <div class="row">
+            <button onclick="append('4')">4</button>
+            <button onclick="append('5')">5</button>
+            <button onclick="append('6')">6</button>
+            <button onclick="append('-')">-</button>
+        </div>
+        <!--row4-->
+        <div class="row">
+            <button onclick="append('1')">1</button>
+            <button onclick="append('2')">2</button>
+            <button onclick="append('3')">3</button>
+            <button onclick="append('+')">+</button>
+        </div>
+        <!--row5-->
+        <div class="row">
+            <button onclick="append('0')">0</button>
+            <button onclick="append('.')">.</button>
+            <button onclick="ClearLast()">C</button>
+            <button onclick="Calculate()">=</button>
+        </div>
+    </div>  
+</body>
+<style>
+    .calculator{
+        width:400px;
+        height:700px;
+        background-color:lightcoral ;
+    }
+    .body{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+    .input{
+        height:250px;
+        width:100%;
+        
+    }
+</style>
+</html>
