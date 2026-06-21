@@ -16,28 +16,28 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            background: linear-gradient(135deg, #cce8f8, #e8f6ff, #b8d8ee);
+            background: linear-gradient(135deg, #EDE8FF, #F5F2FF, #EAE8F8);
             font-family: 'Segoe UI', sans-serif;
         }
 
         .calculator {
             width: 320px;
             padding: 22px;
-            background: linear-gradient(160deg, rgba(255,255,255,0.82) 0%, rgba(190,225,250,0.65) 100%);
+            background: linear-gradient(160deg, rgba(255,255,255,0.88) 0%, rgba(255,230,205,0.60) 100%);
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
             border-radius: 32px;
-            border: 1.5px solid rgba(255,255,255,0.75);
+            border: 1.5px solid rgba(255,255,255,0.82);
             box-shadow:
-                10px 10px 30px rgba(80,145,210,0.22),
-                -4px -4px 12px rgba(255,255,255,0.72);
+                10px 10px 30px rgba(200,110,55,0.15),
+                -4px -4px 12px rgba(255,255,255,0.78);
         }
 
         #screen {
             width: 100%;
             height: 76px;
-            background: linear-gradient(175deg, #182230 0%, #22303f 100%);
-            color: #cce8ff;
+            background: linear-gradient(175deg, #2a1a10 0%, #3a2418 100%);
+            color: #ffd8b0;
             font-size: 1.9rem;
             text-align: right;
             padding: 14px 18px;
@@ -47,10 +47,10 @@
             letter-spacing: 1px;
             box-shadow:
                 inset 3px 3px 10px rgba(0,0,0,0.55),
-                inset -1px -1px 4px rgba(100,165,225,0.08);
+                inset -1px -1px 4px rgba(255,140,60,0.08);
             outline: none;
             font-family: 'Courier New', monospace;
-            -webkit-text-fill-color: #cce8ff;
+            -webkit-text-fill-color: #ffd8b0;
             opacity: 1;
         }
 
@@ -60,7 +60,7 @@
             margin-bottom: 10px;
         }
 
-        /* ── Base button: baby-blue dome ── */
+        /* ── Base button ── */
         button {
             flex: 1;
             height: 65px;
@@ -70,68 +70,148 @@
             font-weight: 600;
             cursor: pointer;
             user-select: none;
-            color: #1a4a6e;
-            background: linear-gradient(148deg, #dcf1ff 0%, #9dd4f2 46%, #68b9ea 100%);
-            box-shadow:
-                3px 3px 9px rgba(50,110,185,0.28),
-                -2px -2px 5px rgba(255,255,255,0.82),
-                inset 0 2px 5px rgba(255,255,255,0.68),
-                inset 0 -2px 4px rgba(30,90,160,0.12);
-            transition: transform 0.07s ease, box-shadow 0.07s ease;
+            transition: transform 0.12s ease, box-shadow 0.22s ease;
         }
 
-        button:hover {
-            background: linear-gradient(148deg, #ecf8ff 0%, #b0dfff 46%, #7ac6f4 100%);
+        /* ── Row 1: White Peach #FFF2E6 ── */
+        .row-1 button {
+            color: #8B4A25;
+            background: linear-gradient(148deg, #FFFAF4 0%, #FFF2E6 46%, #FFE4CC 100%);
+            box-shadow:
+                3px 3px 9px rgba(200,140,80,0.18),
+                -2px -2px 5px rgba(255,255,255,0.95),
+                inset 0 2px 5px rgba(255,255,255,0.88),
+                inset 0 -2px 4px rgba(185,100,45,0.08);
+        }
+        .row-1 button:hover {
+            background: linear-gradient(148deg, #FFFFFF 0%, #FFF8F0 46%, #FFEEDD 100%);
             transform: translateY(-1px);
+            box-shadow:
+                0 0 10px 3px rgba(255,222,190,0.33),
+                0 0 24px 8px rgba(255,222,190,0.13),
+                -2px -2px 5px rgba(255,255,255,0.95),
+                inset 0 2px 5px rgba(255,255,255,0.90);
         }
-
-        button:active {
+        .row-1 button:active {
             transform: translateY(2px);
-            background: linear-gradient(148deg, #c5e8ff 0%, #88c8e8 46%, #55a8d8 100%);
+            background: linear-gradient(148deg, #FFE8D4 0%, #FFDEC0 46%, #FFD0AA 100%);
             box-shadow:
-                1px 1px 4px rgba(50,110,185,0.28),
-                inset 0 3px 7px rgba(30,90,160,0.24),
-                inset 0 -1px 2px rgba(255,255,255,0.38);
+                1px 1px 4px rgba(200,140,80,0.18),
+                inset 0 3px 7px rgba(185,100,45,0.15),
+                inset 0 -1px 2px rgba(255,255,255,0.5);
         }
 
-        /* ── AC / Backspace: soft rose ── */
-        .btn-clear {
-            background: linear-gradient(148deg, #ffe8ed 0%, #ffaabc 46%, #f07888 100%);
-            color: #6a1525;
+        /* ── Row 2: Pale Pastel Peach #FFE1C4 ── */
+        .row-2 button {
+            color: #7A3A15;
+            background: linear-gradient(148deg, #FFF0DC 0%, #FFE1C4 46%, #FFD0A8 100%);
             box-shadow:
-                3px 3px 9px rgba(185,60,80,0.22),
-                -2px -2px 5px rgba(255,255,255,0.82),
-                inset 0 2px 5px rgba(255,255,255,0.68),
-                inset 0 -2px 4px rgba(150,20,40,0.08);
+                3px 3px 9px rgba(200,120,55,0.22),
+                -2px -2px 5px rgba(255,255,255,0.92),
+                inset 0 2px 5px rgba(255,255,255,0.80),
+                inset 0 -2px 4px rgba(178,85,22,0.09);
         }
-        .btn-clear:hover  { background: linear-gradient(148deg, #fff2f4 0%, #ffc0cc 46%, #f890a0 100%); }
-        .btn-clear:active { background: linear-gradient(148deg, #ffd0d8 0%, #f098aa 46%, #e06878 100%); }
+        .row-2 button:hover {
+            background: linear-gradient(148deg, #FFF8EC 0%, #FFEBD4 46%, #FFDCBC 100%);
+            transform: translateY(-1px);
+            box-shadow:
+                0 0 10px 3px rgba(255,205,158,0.38),
+                0 0 24px 8px rgba(255,205,158,0.15),
+                -2px -2px 5px rgba(255,255,255,0.92),
+                inset 0 2px 5px rgba(255,255,255,0.82);
+        }
+        .row-2 button:active {
+            transform: translateY(2px);
+            background: linear-gradient(148deg, #FFD8B4 0%, #FFC898 46%, #FFB880 100%);
+            box-shadow:
+                1px 1px 4px rgba(200,120,55,0.22),
+                inset 0 3px 7px rgba(178,85,22,0.18),
+                inset 0 -1px 2px rgba(255,255,255,0.45);
+        }
 
-        /* ── Operators: lavender ── */
-        .btn-op {
-            background: linear-gradient(148deg, #ece0ff 0%, #c0a8f8 46%, #9878e8 100%);
-            color: #28106a;
+        /* ── Row 3: Classic Peach #FFCE9F ── */
+        .row-3 button {
+            color: #7A3210;
+            background: linear-gradient(148deg, #FFE2C0 0%, #FFCE9F 46%, #FFBA80 100%);
             box-shadow:
-                3px 3px 9px rgba(80,50,185,0.22),
-                -2px -2px 5px rgba(255,255,255,0.82),
-                inset 0 2px 5px rgba(255,255,255,0.62),
-                inset 0 -2px 4px rgba(60,20,160,0.1);
+                3px 3px 9px rgba(200,105,30,0.26),
+                -2px -2px 5px rgba(255,255,255,0.9),
+                inset 0 2px 5px rgba(255,255,255,0.72),
+                inset 0 -2px 4px rgba(170,75,10,0.11);
         }
-        .btn-op:hover  { background: linear-gradient(148deg, #f4ecff 0%, #cfb8ff 46%, #a888f0 100%); }
-        .btn-op:active { background: linear-gradient(148deg, #d8c8ff 0%, #b098e8 46%, #8868d8 100%); }
+        .row-3 button:hover {
+            background: linear-gradient(148deg, #FFEECE 0%, #FFDCB0 46%, #FFC890 100%);
+            transform: translateY(-1px);
+            box-shadow:
+                0 0 10px 3px rgba(255,185,125,0.40),
+                0 0 24px 8px rgba(255,185,125,0.17),
+                -2px -2px 5px rgba(255,255,255,0.90),
+                inset 0 2px 5px rgba(255,255,255,0.74);
+        }
+        .row-3 button:active {
+            transform: translateY(2px);
+            background: linear-gradient(148deg, #FFC898 0%, #FFB478 46%, #FFA060 100%);
+            box-shadow:
+                1px 1px 4px rgba(200,105,30,0.26),
+                inset 0 3px 7px rgba(170,75,10,0.22),
+                inset 0 -1px 2px rgba(255,240,200,0.4);
+        }
 
-        /* ── Equals: mint ── */
-        .btn-eq {
-            background: linear-gradient(148deg, #d8f8ec 0%, #78ddb0 46%, #38c890 100%);
-            color: #0a3d28;
+        /* ── Row 4: Saturated Peach #FFBA7A ── */
+        .row-4 button {
+            color: #6A2800;
+            background: linear-gradient(148deg, #FFD0A0 0%, #FFBA7A 46%, #FFA555 100%);
             box-shadow:
-                3px 3px 9px rgba(30,145,90,0.22),
-                -2px -2px 5px rgba(255,255,255,0.82),
-                inset 0 2px 5px rgba(255,255,255,0.62),
-                inset 0 -2px 4px rgba(10,100,50,0.1);
+                3px 3px 9px rgba(200,90,15,0.28),
+                -2px -2px 5px rgba(255,255,255,0.88),
+                inset 0 2px 5px rgba(255,230,170,0.60),
+                inset 0 -2px 4px rgba(160,60,5,0.13);
         }
-        .btn-eq:hover  { background: linear-gradient(148deg, #e5fff4 0%, #90e8c0 46%, #50d8a0 100%); }
-        .btn-eq:active { background: linear-gradient(148deg, #c0f0d8 0%, #60cca0 46%, #28b880 100%); }
+        .row-4 button:hover {
+            background: linear-gradient(148deg, #FFDCB0 0%, #FFC88A 46%, #FFB268 100%);
+            transform: translateY(-1px);
+            box-shadow:
+                0 0 10px 3px rgba(255,168,100,0.44),
+                0 0 24px 8px rgba(255,168,100,0.18),
+                -2px -2px 5px rgba(255,255,255,0.88),
+                inset 0 2px 5px rgba(255,228,168,0.62);
+        }
+        .row-4 button:active {
+            transform: translateY(2px);
+            background: linear-gradient(148deg, #FFB878 0%, #FFA258 46%, #FF8E3C 100%);
+            box-shadow:
+                1px 1px 4px rgba(200,90,15,0.28),
+                inset 0 3px 7px rgba(160,60,5,0.25),
+                inset 0 -1px 2px rgba(255,220,150,0.38);
+        }
+
+        /* ── Row 5: Deep Peach #FFA552 ── */
+        .row-5 button {
+            color: #5A2000;
+            background: linear-gradient(148deg, #FFBE82 0%, #FFA552 46%, #FF8F30 100%);
+            box-shadow:
+                3px 3px 9px rgba(200,75,5,0.30),
+                -2px -2px 5px rgba(255,255,255,0.85),
+                inset 0 2px 5px rgba(255,215,145,0.52),
+                inset 0 -2px 4px rgba(155,50,0,0.15);
+        }
+        .row-5 button:hover {
+            background: linear-gradient(148deg, #FFCC94 0%, #FFB265 46%, #FF9C45 100%);
+            transform: translateY(-1px);
+            box-shadow:
+                0 0 10px 3px rgba(255,148,80,0.46),
+                0 0 24px 8px rgba(255,148,80,0.20),
+                -2px -2px 5px rgba(255,255,255,0.85),
+                inset 0 2px 5px rgba(255,212,142,0.54);
+        }
+        .row-5 button:active {
+            transform: translateY(2px);
+            background: linear-gradient(148deg, #FFAA62 0%, #FF9040 46%, #FF7A20 100%);
+            box-shadow:
+                1px 1px 4px rgba(200,75,5,0.30),
+                inset 0 3px 7px rgba(155,50,0,0.27),
+                inset 0 -1px 2px rgba(255,205,130,0.36);
+        }
     </style>
 </head>
 <body>
@@ -139,44 +219,44 @@
 <div class="calculator">
     <input id="screen" type="text" disabled>
 
-    <!--row1-->
-    <div class="row">
-        <button class="btn-clear" onclick="Clear()">AC</button>
+    <!--row1: Pastel Peach / Pale Peach-->
+    <div class="row row-1">
+        <button onclick="Clear()">AC</button>
         <button onclick="appendParen()">()</button>
         <button onclick="append('%')">%</button>
-        <button class="btn-op" onclick="append('/')">÷</button>
+        <button onclick="append('/')">÷</button>
     </div>
 
-    <!--row2-->
-    <div class="row">
+    <!--row2: Blush Peach / Peach Pink-->
+    <div class="row row-2">
         <button onclick="append('7')">7</button>
         <button onclick="append('8')">8</button>
         <button onclick="append('9')">9</button>
-        <button class="btn-op" onclick="append('*')">×</button>
+        <button onclick="append('*')">×</button>
     </div>
 
-    <!--row3-->
-    <div class="row">
+    <!--row3: Classic Peach-->
+    <div class="row row-3">
         <button onclick="append('4')">4</button>
         <button onclick="append('5')">5</button>
         <button onclick="append('6')">6</button>
-        <button class="btn-op" onclick="append('-')">−</button>
+        <button onclick="append('-')">−</button>
     </div>
 
-    <!--row4-->
-    <div class="row">
+    <!--row4: Apricot Peach-->
+    <div class="row row-4">
         <button onclick="append('1')">1</button>
         <button onclick="append('2')">2</button>
         <button onclick="append('3')">3</button>
-        <button class="btn-op" onclick="append('+')">+</button>
+        <button onclick="append('+')">+</button>
     </div>
 
-    <!--row5-->
-    <div class="row">
+    <!--row5: Deep Peach / Neon Peach-->
+    <div class="row row-5">
         <button onclick="append('0')">0</button>
         <button onclick="append('.')">.</button>
-        <button class="btn-clear" onclick="ClearLast()">⌫</button>
-        <button class="btn-eq" onclick="Calculate()">=</button>
+        <button onclick="ClearLast()">⌫</button>
+        <button onclick="Calculate()">=</button>
     </div>
 </div>
 
@@ -208,14 +288,12 @@
         try {
             let expr = screen.value.replace(/%/g, '/100');
             let result = Function('"use strict"; return (' + expr + ')')();
-            // Round floating point noise
             screen.value = +result.toFixed(10) + '';
         } catch {
             screen.value = 'Error';
         }
     }
 
-    // Keyboard support
     document.addEventListener('keydown', (e) => {
         if (e.key >= '0' && e.key <= '9') append(e.key);
         else if (e.key === '+') append('+');
